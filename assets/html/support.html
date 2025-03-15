@@ -1,73 +1,101 @@
- <!-- this is the support page -->
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Support</title>
+    <title>Support - MedEx Dashboard</title>
     <style>
-        body{
-            background-color: blanchedalmond;
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f6f8;
+            margin: 0;
+            padding: 0;
         }
-        .email{
-            position: absolute;
-            height: 40px;
-            width: 300px;
-            font-size: large;
+        header {
+            background-color: #4a90e2;
+            padding: 20px;
+            color: white;
             text-align: center;
-            left: 37%;
-            bottom: 80%;
-            background-color: rgb(183, 207, 243);
         }
-        .que{
-            position: absolute;
-            left: 33%;
-            bottom: 40%;
-            height: 200px;
-            width: 400px;
-            font-size: large;
-           background-color: aliceblue;
-           margin-bottom: 20px;
+        .container {
+            padding: 20px;
+            max-width: 1200px;
+            margin: auto;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         }
-        .submit{
-            position: absolute;
-            left: 43%;
-            bottom: 25%;
-            height: 45px;
-            width: 100px;
-            background-color: aqua;
-            transition: background-color 0.3 ease;
-            font-size: larger;
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
         }
-        .submit:hover{
-            background-color: rgb(203, 210, 211);
-            transform:scale(1.05)
+        .faq {
+            border-bottom: 1px solid #ccc;
+            padding: 10px 0;
+        }
+        .faq h3 {
+            cursor: pointer;
+        }
+        .faq-content {
+            display: none;
+            margin-top: 10px;
+        }
+        footer {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 0.9em;
+            color: #777;
         }
     </style>
 </head>
 <body>
-    <input class="email" type="email" placeholder="Enter email ID" required>
-    <input class="que" type="text" id="question" placeholder="Type your Queries here">
-    <button class="submit" onclick="submitQuestion()">Submit</button>
 
-    <p id="message" style="display: none; color: green;"></p>
+<header>
+    <h1>MedEx Support</h1>
+</header>
 
-    <script>
-        function submitQuestion() {
-            let question = document.getElementById("question").value;
-            let message = document.getElementById("message");
+<div class="container">
+    <h1>Frequently Asked Questions</h1>
 
-            if (question.trim() === "") {
-                message.style.color = "red";
-                message.innerText = "Please enter a question before submitting.";
-            } else {
-                message.style.color = "green";
-                message.innerText = "Your question has been submitted.";
-            }
+    <div class="faq">
+        <h3 onclick="toggleAnswer(this)">How can I reset my password?</h3>
+        <div class="faq-content">
+            <p>You can reset your password by clicking on the 'Forgot Password' link on the login page.</p>
+        </div>
+    </div>
 
-            message.style.display = "block";
-        }
-    </script>
-    
+    <div class="faq">
+        <h3 onclick="toggleAnswer(this)">What should I do if I encounter a system error?</h3>
+        <div class="faq-content">
+            <p>If you face any system errors, please contact our support team via the contact form.</p>
+        </div>
+    </div>
+
+    <div class="faq">
+        <h3 onclick="toggleAnswer(this)">How do I add a new doctor?</h3>
+        <div class="faq-content">
+            <p>You can add a new doctor by navigating to the Doctors section and clicking on 'Add Doctor'.</p>
+        </div>
+    </div>
+
+    <div class="faq">
+        <h3 onclick="toggleAnswer(this)">Where can I view the hospital schedule?</h3>
+        <div class="faq-content">
+            <p>The hospital schedule can be viewed in the 'Schedule' section on the dashboard.</p>
+        </div>
+    </div>
+</div>
+
+<footer>
+    <p>&copy; 2023 MedEx. All rights reserved.</p>
+</footer>
+
+<script>
+    function toggleAnswer(element) {
+        const content = element.nextElementSibling;
+        content.style.display = content.style.display === 'block' ? 'none' : 'block';
+    }
+</script>
+
 </body>
 </html>
