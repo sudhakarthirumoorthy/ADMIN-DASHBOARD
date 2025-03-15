@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hospital Revenue & Sales Chart</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #f4f4f4;
+    padding: 20px;
+}
+
+.container {
+    width: 60%;
+    margin: auto;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Hospital Revenue, Medicines, and Equipment Sales</h2>
+        <canvas id="hospitalChart"></canvas>
+    </div>
+
+    <script>
+        
+// Get the canvas element
+const ctx = document.getElementById('hospitalChart').getContext('2d');
+
+// Sample Data
+const chartData = {
+    labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun"],
+    datasets: [
+        {
+            label: "Revenue ($ in thousands)",
+            data: [120, 150, 180, 200, 250, 300],
+            borderColor: "red",
+            backgroundColor: "rgba(255, 99, 132, 0.2)",
+            borderWidth: 2,
+            fill: true
+        },
+        {
+            label: "Medicines Sold (in units)",
+            data: [400, 450, 500, 700, 800, 900],
+            borderColor: "blue",
+            backgroundColor: "rgba(54, 162, 235, 0.2)",
+            borderWidth: 2,
+            fill: true
+        },
+        {
+            label: "Medical Equipment Sold",
+            data: [50, 80, 100, 120, 150, 200],
+            borderColor: "green",
+            backgroundColor: "rgba(75, 192, 192, 0.2)",
+            borderWidth: 2,
+            fill: true
+        }
+    ]
+};
+
+// Chart Configuration
+const config = {
+    type: 'line', // Line Chart
+    data: chartData,
+    options: {
+        responsive: true,
+        plugins: {
+            legend: {
+                position: 'top'
+            },
+            title: {
+                display: true,
+                text: 'Monthly Revenue & Sales Data'
+            }
+        },
+        scales: {
+            y: {
+                beginAtZero: true
+            }
+        }
+    }
+};
+
+// Render Chart
+new Chart(ctx, config);
+
+    </script>
+
+</body>
+</html>
